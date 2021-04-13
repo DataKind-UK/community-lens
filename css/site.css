@@ -6,3 +6,9 @@
 #step2 {
 	display:none;
 }
+
+#process_postcodes {
+	margin-top:20px;
+	margin-left:20px;
+	font-size:2em;
+}
