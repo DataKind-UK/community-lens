@@ -13,6 +13,8 @@ function getPostCodeData(postcode){
 				if(result[postcode]==undefined){
 					error.push(postcode);
 				} else {
+					let data = result[postcode];
+					data.unshift(postcode);
 		    		postcodeData.push(result[postcode]);
 		    		asyncCalls--;					
 				}
@@ -76,7 +78,10 @@ function createMap(postcodes){
 function getPostcodeLayer(postcodes){
 	let markers = [];
 	postcodes.forEach(function(postcode){
-		let marker = L.marker([postcode[0], postcode[1]])
+		let popUp = "<p>Postcode: "+postcode[0]+"</p>";
+		popUp += "<p>IMD rank: "+postcode[5]+"</p>";
+		popUp += "<p>IMD Decile: "+postcode[6]+"</p>";
+		let marker = L.marker([postcode[1], postcode[2]]).bindPopup(popUp);
 		markers.push(marker);
 	});
 	let postcodeLayer = L.featureGroup(markers);
@@ -86,7 +91,7 @@ function getPostcodeLayer(postcodes){
 function getAverageRank(postcodes){
 	let reducer = function(total,postcode){
 		//we should remove this in preprocessing
-		let value = parseInt(postcode[4].replace(',',''));
+		let value = parseInt(postcode[5].replace(',',''));
 		return total+value;
 	}
 
@@ -220,7 +225,7 @@ function barChart(id,postcodes){
 function processDataForBarChart(postcodes){
 	let deciles = [0,0,0,0,0,0,0,0,0,0];
 	postcodes.forEach(function(postcode){
-		let decile = postcode[5]-1;
+		let decile = postcode[6]-1;
 		deciles[decile]++;
 	});
 	return deciles;
