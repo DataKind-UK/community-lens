@@ -12,7 +12,7 @@ print('Building IMD lookup')
 with open(imdFile, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
     for row in csvreader:
-    	imd[row[0]] = [row[2],row[3],row[4],row[5]]
+    	imd[row[0]] = [row[2],row[3],row[4],row[6]]
 
 #process each postcode in csv and join IMD data
 print('Processing Postcodes')
@@ -45,6 +45,6 @@ print('Saving New Files')
 for key in processedData:
 	file = key+'.json'
 	print(file)
-	with open('processed_data/'+file, 'w') as outfile:
+	with open('../processed_data/'+file, 'w') as outfile:
 		json.dump(processedData[key], outfile)
 
