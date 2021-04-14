@@ -12,7 +12,7 @@ print('Building IMD lookup')
 with open(imdFile, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',', quotechar='"')
     for row in csvreader:
-    	imd[row[0]] = [row[2],row[3],row[4],row[6]]
+    	imd[row[0]] = [row[2],row[3],row[4],row[6],row[8],row[10],row[12],row[14],row[16],row[18]]
 
 #process each postcode in csv and join IMD data
 print('Processing Postcodes')
@@ -27,6 +27,13 @@ with open(postcodeFile, newline='') as csvfile:
     		#check if in England or not
     		if(row[49] not in ['N99999999','S99999999','W99999999','stp','','L99999999','M99999999']):
 
+
+	    		fileEnding = '_5'
+	    		postcodeEnd = row[2].split(' ')[1][0]
+	    		if int(postcodeEnd) <5:
+	    			fileEnding = '_0'
+
+	    		postcodeStart = postcodeStart+fileEnding
     			#retrieve IMD data for the lsoa
 	    		imdData = imd[lsoa]
 
