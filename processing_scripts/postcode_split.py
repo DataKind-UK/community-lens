@@ -45,7 +45,7 @@ with open(postcodeFile, newline='') as csvfile:
 	    		fullCode = row[0].replace(' ','')
 
 	    		#add full postcode with data
-	    		processedData[postcodeStart][fullCode] = [row[42],row[43],imdData[0],imdData[1],imdData[2],imdData[3]]
+	    		processedData[postcodeStart][fullCode] = [row[42],row[43],imdData[0],imdData[1],imdData[2],imdData[3],imdData[4],imdData[5],imdData[6],imdData[7],imdData[8],imdData[9]]
 
 print('Saving New Files')
 #save one files for each postcode start value
