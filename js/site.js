@@ -1,9 +1,5 @@
 function getPostCodeData(postcode){
-	let shortcode = postcode.substr(0,4);
-	if(postcode.length == 6){
-		shortcode = postcode.substr(0,3);
-	}
-
+	let shortcode = postcode.substr(0,postcode.length-3);
 	let file = 'processed_data/'+shortcode+'.json';
 	console.log(file);
 	$.ajax(
@@ -80,7 +76,7 @@ function getPostcodeLayer(postcodes){
 	postcodes.forEach(function(postcode){
 		let popUp = "<p>Postcode: "+postcode[0]+"</p>";
 		popUp += "<p>IMD rank: "+postcode[5]+"</p>";
-		popUp += "<p>IMD Decile: "+postcode[6]+"</p>";
+		popUp += "<p>IMD Decile: "+getDecile(postcode[5])+"</p>";
 		let marker = L.marker([postcode[1], postcode[2]]).bindPopup(popUp);
 		markers.push(marker);
 	});
@@ -225,10 +221,18 @@ function barChart(id,postcodes){
 function processDataForBarChart(postcodes){
 	let deciles = [0,0,0,0,0,0,0,0,0,0];
 	postcodes.forEach(function(postcode){
-		let decile = postcode[6]-1;
+		let decile = getDecile(postcode[5])-1;
 		deciles[decile]++;
 	});
 	return deciles;
+}
+
+function getDecile(rank){
+	let decile = Math.floor(rank/32844*10)+1
+	if(decile>10){
+		decile = 10;
+	}
+	return decile
 }
 
 function init(){
