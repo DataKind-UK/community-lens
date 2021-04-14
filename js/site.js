@@ -1,6 +1,12 @@
 function getPostCodeData(postcode){
 	let shortcode = postcode.substr(0,postcode.length-3);
-	let file = 'processed_data/'+shortcode+'.json';
+	let postcodeEnd = postcode.substr(postcode.length-3,postcode.length-2);
+	let fileEnding = '_5'
+	if(parseInt(postcodeEnd)<5){
+		fileEnding = '_0'
+	}
+
+	let file = 'processed_data/'+shortcode+fileEnding+'.json';
 	console.log(file);
 	$.ajax(
 		{
