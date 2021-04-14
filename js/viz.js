@@ -13,8 +13,11 @@ function getAverageRank(postcodes,index){
 	return averagePercent;
 }
 
-function rankBar(id,rank,comparisons){
+function rankBar(id,rank,comparisons,topic){
 
+	let barColours = colours[topic];
+
+	$(id).html('');
 	var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 220 - margin.left - margin.right,
     height = 60 - margin.top - margin.bottom;
@@ -39,7 +42,7 @@ function rankBar(id,rank,comparisons){
 		.attr('width', 20)
 		.attr('height', 20)
 		.attr('fill', function(d){
-			return colours[d];
+			return barColours[d];
 		});
 
 	let markerPositionX = rank*200
@@ -50,7 +53,11 @@ function rankBar(id,rank,comparisons){
     .style("fill", "black");
 }
 
-function barChart(id,postcodes,index){
+function barChart(id,postcodes,index,topic){
+
+	let barColours = colours[topic];
+
+	$(id).html('');
 	let data = processDataForBarChart(postcodes,index);
 
 	let maxCount = d3.max(data);
@@ -88,7 +95,7 @@ function barChart(id,postcodes,index){
 			return height-y(d);
 		})
 		.attr('fill', function(d,i){
-			return colours[i];
+			return barColours[i];
 		});
 
 	svg.append('line')

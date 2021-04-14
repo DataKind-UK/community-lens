@@ -1,6 +1,8 @@
-function setLayerStyle(){
+function setLayerStyle(topic,featureAtt){
+
+	let mapColours = colours[topic];
 	let style = function (feature) {
-  		let colour = colours[feature.properties['IMDDec0']-1];
+  		let colour = mapColours[feature.properties[featureAtt]-1];
       	return { color: colour, weight: 0.5, fillOpacity: 0.5 }
 	}
 	featureLayer.setStyle(style);

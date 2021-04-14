@@ -45,12 +45,14 @@ function processingComplete(){
 }
 
 function setForData(topic){
-	let dataIndex = {'IMD':5,'Income':6}
-	let index = dataIndex[topic];
-	setLayerStyle();
-	averageRank = getAverageRank(postcodeData,index);
-	rankBar('#averageRank',averageRank,[]);
-	barChart('#barchart',postcodeData,index);
+	console.log('setting for topic: '+topic);
+	let dataIndex = {'IMD':{'index':5,'featureAtt':'IMDDec0'},'Income':{'index':6,'featureAtt':'IncDec'}}
+	let index = dataIndex[topic].index;
+	let featureAtt = dataIndex[topic].featureAtt;
+	setLayerStyle(topic,featureAtt);
+	averageRank = getAverageRank(postcodeData,index,topic);
+	rankBar('#averageRank',averageRank,[],topic);
+	barChart('#barchart',postcodeData,index,topic);
 }
 
 function getDecile(rank){
@@ -71,11 +73,21 @@ function init(){
 			getPostCodeData(postcode);
 		});
 	});
+
+	$('.btn-data').on('click',function(){
+		setForData($(this).attr('data-id'));
+		$('.btn-data').removeClass('btn-active');
+		$(this).addClass('btn-active');
+	})
 }
 
 var postcodeData = [];
 var errors = []
 var asyncCalls;
 var featureLayer;
-let colours = ['#a50026','#d73027','#f46d43','#fdae61','#fee08b','#d9ef8b','#a6d96a','#66bd63','#1a9850','#006837'];
+let colours = {
+	'IMD':['#F57F17','#F9A825','#FBC02D','#FDD835','#FFEB3B','#FFEE58','#FFF176','#FFF59D','#FFF9C4','#FFFDE7'],
+	'Extra':['#40004b','#762a83','#9970ab','#c2a5cf','#e7d4e8','#d9f0d3','#a6dba0','#5aae61','#1b7837','#00441b'],
+	'Income':['#01579B','#0277BD','#0288D1','#039BE5','#03A9F4','#29B6F6','#4FC3F7','#81D4FA','#B3E5FC','#E1F5FE']
+	};
 init();
