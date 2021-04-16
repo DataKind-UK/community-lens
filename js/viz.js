@@ -10,6 +10,7 @@ function getAverageRank(postcodes,index){
 	let count = postcodes.length;
 	let average = (total/count);
 	let averagePercent = average/max;
+	console.log(averagePercent);
 	return averagePercent;
 }
 

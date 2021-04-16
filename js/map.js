@@ -10,6 +10,7 @@ function setLayerStyle(topic,featureAtt){
 
 function createMap(postcodes){
 	let map = L.map('map').setView([52,0], 6);
+	map.options.minZoom = 10;
 
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -21,6 +22,7 @@ function createMap(postcodes){
 	  minZoom:10,
 	  precision: 5,
 	  renderer:L.canvas(),
+	  //fields:['FID','IMDDec0','IncDec','EmpDec','EduDec','CriDec','BHSDec','EnvDec','HDDDec']
 	}).addTo(map);
 
 	let postcodeLayer = getPostcodeLayer(postcodes);

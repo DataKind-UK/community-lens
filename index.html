@@ -3,11 +3,11 @@
         <title>IMD mapper</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/site.css"/>
-        <script src="js/jquery.js"></script>
-        <script src="js/d3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/site.css"/>
+        <script src="../js/jquery.js"></script>
+        <script src="../js/d3.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
         <script src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js"
@@ -28,53 +28,16 @@
     </head>
     <body>
         <div id="content" class="container">
-            <div id="step1" class="row">
-                <div id="postcodes_entry" class="col-md-12">
-                    <textarea id="postcode_entry_text" name="postcode_entry_text" rows="20" cols="50"></textarea>
-                    <button id="process_postcodes" class="btn btn-primary">Map Postcodes</button>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/front-page.png" width="100%" alt="satelite image of a neighbourhood in england" />
                 </div>
-            </div>
-            <div id="step2" class="row">
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1>Name of Data set</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <div id="barchart" class="col-md-12">
-                            <h3>By Decile</h3>
-                        </div>
-                        <div id="averageRank" class="col-md-12">
-                            <h3>Average Rank</h3>
-                        </div>
-                        <div class="col-md-12">
-                            <h4>Definition</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="row data-navigation">
-                        <div class="col-md-12">
-                            <button class="btn btn-app btn-data btn-active" data-id="IMD">IMD 2019<br/><wbr></button>
-                            <button class="btn btn-app btn-data" data-id="Income">Income<br/><wbr></button>
-                            <button class="btn btn-app btn-data">Employment<br/><wbr></button>
-                            <button class="btn btn-app btn-data">Education +<br/ ><wbr></button>
-                            <button class="btn btn-app btn-data">Health and<br/>Disability</button>
-                            <button class="btn btn-app btn-data">Crime<br/><wbr></button>
-                            <button class="btn btn-app btn-data">Living<br/>environment</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="map"></div>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                    <h1>Community Lens</h1>
+                    <p>Match open datasets to the areas you work in to learn more about the needs of local communities.</p>
+                    <button class="btn btn-app">Learn More</button> <button class="btn btn-app">Use now</button>
                 </div>
             </div>
         </div>
-        <script src="js/map.js"></script>
-        <script src="js/viz.js"></script>
-        <script src="js/site.js"></script>
     </body>
 </html>

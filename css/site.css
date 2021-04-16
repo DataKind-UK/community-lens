@@ -2,6 +2,9 @@
   --bg-color-1: #e8bbb7;
 }
 
+h1 {
+	font-size:1.5em;
+}
 
 #map {
 	width:100%;
@@ -26,7 +29,7 @@
 .btn-data {
 	background-color:white;
 	border-color:black;
-	min-width:100px;
+	min-width:90px;
 	font-size:0.8em;
 }
 
