@@ -24,6 +24,7 @@ function getPostCodeData(postcode){
 	    		if(asyncCalls==0){
 	    			processingComplete();
 	    		}
+	    		updateProgress()
 	  		},
 	  		error: function(result){
 	  			errors.push(postcode);
@@ -31,9 +32,15 @@ function getPostCodeData(postcode){
 	  			if(asyncCalls==0){
 	  				processingComplete();
 	    		}
+	    		updateProgress()
 	  		}
   		}
   	);
+}
+
+function updateProgress(){
+	let progress = total - asyncCalls;
+	$('#progress').html(progress+'/'+total);
 }
 
 function cleanPostcode(postcode){
@@ -43,11 +50,27 @@ function cleanPostcode(postcode){
 }
 
 function processingComplete(){
-	$('#step1').hide();
-	$('#step2').show();
 	console.log(postcodeData);
+	if(errors.length>0){
+		$('#analysis-progress').hide();
+		$('#analysis-finished').show();
+		$('#error-count').html(errors.length);
+		$('#errors').html('');
+		errors.forEach(function(error){
+			$('#errors').append('<p class="errorpostcode">'+error+'</p>')
+		});
+	} else {
+		$('#step1').hide();
+		$('#step2').show();
+	}
+
+}
+
+function loadAnalysisStep(topic){
+	$('#step2').hide();
+	$('#step3').show();
 	createMap(postcodeData);
-	setForData('IMD');
+	setForData(topic);
 }
 
 function setForData(topic){
@@ -65,6 +88,8 @@ function setForData(topic){
 	rankBar('#averageRank',averageRank,[],topic);
 	barChart('#barchart',postcodeData,index,topic);
 	generateText(postcodeData,index,topic);
+	$('.btn-data').removeClass('btn-active');
+	$('.btn[data-id="'+topic+'"]').addClass('btn-active');
 }
 
 function getDecile(rank){
@@ -94,9 +119,15 @@ function generateDownload(){
 }
 
 function init(){
-	$('#process_postcodes').on('click',function(){
+	$('.process-postcodes').on('click',function(){
+		$('#process-postcodes').hide();
+		$('#analysis-finished').hide();
+		$('#analysis-progress').show();
+		postcodeData = [];
+		errors = [];
 		let postcodesList = $('#postcode_entry_text').val();
 		let postcodes = postcodesList.split(/\n/);
+		total = postcodes.length;
 		asyncCalls = postcodes.length;
 		postcodes.forEach(function(postcode){
 			postcode = cleanPostcode(postcode);
@@ -104,14 +135,39 @@ function init(){
 		});
 	});
 
+	$('#continue').on('click',function(){
+		$('#step1').hide();
+		$('#step2').show();
+	});
+
 	$('.btn-data').on('click',function(){
 		setForData($(this).attr('data-id'));
-		$('.btn-data').removeClass('btn-active');
-		$(this).addClass('btn-active');
 	})
 
 	$('#download-data').on('click',function(){
 		generateDownload();
+	});
+
+	$('#step2').hide();
+	$('#step3').hide();
+
+	$('#analysis-progress').hide();
+	$('#analysis-finished').hide();
+
+	$('.btn-datatopic').on('mouseover',function(){
+		console.log($(this));
+		let topic = $(this).attr('data-id');
+		console.log(dataIndex);
+		console.log(topic);
+		let title = dataIndex[topic].title;
+		let definition = dataIndex[topic].definition;
+		$('#dataset-title').html(title);
+		$('#dataset-definition').html(definition);
+	});
+
+	$('.btn-datatopic').on('click',function(){
+		let topic = $(this).attr('data-id');
+		loadAnalysisStep(topic);
 	});
 }
 
@@ -119,6 +175,7 @@ var postcodeData = [];
 var errors = []
 var asyncCalls;
 var featureLayer;
+var total;
 let colours = {
 	'IMD':['#E65100','#EF6C00','#F57C00','#FB8C00','#FF9800','#FFA726','#FFB74D','#FFCC80','#FFE0B2','#FFF3E0'],
 	'Extra':['#40004b','#762a83','#9970ab','#c2a5cf','#e7d4e8','#d9f0d3','#a6dba0','#5aae61','#1b7837','#00441b'],

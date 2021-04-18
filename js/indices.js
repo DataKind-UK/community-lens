@@ -14,13 +14,13 @@ let dataIndex = {
    "Employment":{
       "index":7,
       "featureAtt":"EmpDec",
-      "title":"The Lens of Education, Skills and Training Deprivation",
+      "title":"The Lens of Employment Deprivation",
       "definition":'The Employment Deprivation Domain measures the proportion of the working age population in an area involuntarily excluded from the labour market.',
    },
    "Education":{
       "index":8,
       "featureAtt":"EduDec",
-      "title":"The Lens of Income Deprevation",
+      "title":"The Lens of Education, Skills and Training Deprivation",
       "definition":'The Education, Skills and Training Domain measures the lack of attainment and skills in the local population.',
    },
    "Health":{

@@ -17,11 +17,13 @@ function getAverageRank(postcodes,index){
 function rankBar(id,rank,comparisons,topic){
 
 	let barColours = colours[topic];
-
+	
 	$(id).html('');
 	var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 220 - margin.left - margin.right,
+    width = $(id).width() - margin.left - margin.right,
     height = 60 - margin.top - margin.bottom;
+
+    let barwidth = width/10;
 
 	var svg = d3.select(id)
 	  .append("svg")
@@ -37,16 +39,16 @@ function rankBar(id,rank,comparisons,topic){
 		.enter()
 		.append('rect')
 		.attr('x', function(d){
-			return d*20
+			return d*barwidth
 		})
 		.attr('y', 10)
-		.attr('width', 20)
+		.attr('width', barwidth)
 		.attr('height', 20)
 		.attr('fill', function(d){
 			return barColours[d];
 		});
 
-	let markerPositionX = rank*200
+	let markerPositionX = rank*barwidth*10;
 
 	svg.append('path')
     .attr("d", d3.svg.symbol().type("triangle-down").size(100))
@@ -71,8 +73,10 @@ function barChart(id,postcodes,index,topic){
     	.range([100, 0]);
 
 	var margin = {top: 30, right: 10, bottom: 20, left: 10},
-    width = 220 - margin.left - margin.right,
+    width = $(id).width() - margin.left - margin.right,
     height = 150 - margin.top - margin.bottom;
+
+    let barwidth = width/10;
 
 	var svg = d3.select(id)
 	  .append("svg")
@@ -86,12 +90,12 @@ function barChart(id,postcodes,index,topic){
 		.enter()
 		.append('rect')
 		.attr('x', function(d,i){
-			return i*20
+			return i*barwidth
 		})
 		.attr('y', function(d){
 			return y(d);
 		})
-		.attr('width', 20)
+		.attr('width', barwidth)
 		.attr('height', function(d){
 			return height-y(d);
 		})
@@ -101,7 +105,7 @@ function barChart(id,postcodes,index,topic){
 
 	svg.append('line')
 		.attr('x1',0)
-		.attr('x2',200)
+		.attr('x2',barwidth*10)
 		.attr('y1',y(averageLine))
 		.attr('y2',y(averageLine))
 		.attr('stroke','grey')
@@ -111,7 +115,7 @@ function barChart(id,postcodes,index,topic){
 		.data(data)
 		.enter()
 		.append('text')
-		.attr("x", function(d,i) { return i*20+6; })
+		.attr("x", function(d,i) { return i*barwidth+6; })
     	.attr("y",function(d){
 			return y(d)-10;
 		})
@@ -127,11 +131,11 @@ function barChart(id,postcodes,index,topic){
 		.data(data)
 		.enter()
 		.append('text')
-		.attr("x", function(d,i) { return i*20+6; })
+		.attr("x", function(d,i) { return i*barwidth+6; })
     	.attr("y",function(d){
 			return 100;
 		})
-    	.attr("dy", "1em")
+    	.attr("dy", "0.8em")
     	.text(function(d,i) {
 	    	return (i+1)
     	});

@@ -3,11 +3,11 @@
         <title>IMD mapper</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/site.css"/>
         <script src="../js/jquery.js"></script>
         <script src="../js/d3.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
+        <!-- CSS only -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
         <script src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js"
@@ -27,15 +27,59 @@
         </script>         
     </head>
     <body>
-        <div id="content" class="container">
-            <div class="row">
+        <div id="content" class="container-fluid">
+            <div id="menu-bar" class="row">
+                <div class="col-sm-6">
+                    <p>Community Lens V0.1</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <p><span class="menu-item">Request Datasets</span><span class="menu-item">About</span></p>
+                </div>
+            </div>
+            <div id="frontpage-section-1" class="row frontpage-section">
                 <div class="col-md-6">
                     <img src="images/front-page.png" width="100%" alt="satelite image of a neighbourhood in england" />
                 </div>
-                <div class="col-md-6">
+                <div id="main-description" class="offset-md-1 col-md-4">
                     <h1>Community Lens</h1>
                     <p>Match open datasets to the areas you work in to learn more about the needs of local communities.</p>
                     <button class="btn btn-app">Learn More</button> <button class="btn btn-app">Use now</button>
+                </div>
+            </div>
+            <div id="frontpage-section-2" class="row frontpage-section">
+                <div class="offset-md-1 col-md-4">
+                    <p class="instruction-header">1. Copy and paste your data</p>
+                    <p>CommunityLENS works with copy-and-pasted postcodes from other applications (e.g. Microsoft Excel, Google Spreadsheets, TextEdit). Each postcode should be on a new line.
+
+                    <p class="instruction-header">Your data is safe.</p>
+                    <p>Even though CommunityLENS is a web app, the data you insert will be processed only by the web browser. No server-side operations or storages are performed, no one will see, touch or copy your data!</p>
+                    <p>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+            <div id="frontpage-section-3" class="row frontpage-section">
+                <div class="col-md-6"></div>
+                <div class="offset-md-1 col-md-4">
+                    <p class="instruction-header">2. Choose the topic you are interested in.</p>
+                    <p>We designed and developed CommunityLENS with social impact organisations in mind. That’s why we focused on providing  open data sets which you can easily select to understand the communities you serve better. Is there an open dataset you would like to see added? Write to us here.</p>                     
+                </div>
+            </div>
+            <div id="frontpage-section-4" class="row frontpage-section">
+                <div class="offset-md-1 col-md-4">
+                    <p class="instruction-header">3. Explore your data and the topic of interest</p>
+                    <p>Understand how your data maps to the topic of interest. Do you want to view a different topic ? Do you want to explore something else? Add new information to your dataset or select a different topic of interest.</p> 
+
+                    <p>To create a report, simply press ‘print page’. To compare different areas, take screenshots and place them side by side next to each other.</p>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>                  
+            </div>
+            <div id="footer" class="row">
+                <div class="col-md-12 text-center">
+                    <p>Developed with support from</p>
                 </div>
             </div>
         </div>
