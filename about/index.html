@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Commmunity Lens</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../css/site.css"/>
+        <script src="../js/jquery.js"></script>
+        <script src="../js/d3.min.js"></script>
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js"
+            integrity="sha512-JmpptMCcCg+Rd6x0Dbg6w+mmyzs1M7chHCd9W8HPovnImG2nLAQWn3yltwxXRM7WjKKFFHOAKjjF2SC4CgiFBg=="
+            crossorigin=""></script>
+        <script src="https://unpkg.com/esri-leaflet-vector@3.0.0/dist/esri-leaflet-vector.js"></script>        
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-46399763-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>         
+    </head>
+    <body>
+        <div id="content" class="container-fluid">
+            <div id="menu-bar" class="row">
+                <div class="col-sm-6">
+                    <p><a href="../">Community Lens V0.1</a></p>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <p><span class="menu-item">Request Datasets</span><span class="menu-item"><a href="#">About</a></span></p>
+                </div>
+            </div>
+            <div id = "about" class="row">          
+                <div class="col-md-4 offset-md-1">
+                    <p>Community Lens is a prototype tool created from a 5 week design sprint by Hetco Design, DataKind and CAST. The project was funded by the National Lottery.</p>
+                    <p>Do you want more features or data added to the tool? Please fill out the Request feature and data set form.</p>
+                </div>
+                <div class="offset-md-1 col-md-5">
+                    <img src = "../images/screen4.png" alt="topic selection screen" width="500"/>
+                </div>  
+            </div>
+        </div>
+    </body>
+</html>

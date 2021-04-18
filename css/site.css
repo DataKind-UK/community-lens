@@ -80,6 +80,10 @@ p {
 	margin-bottom:0em;
 }
 
+.leftimage {
+	float: right;
+}
+
 /* topic page */
 
 .datatopic {
@@ -131,4 +135,14 @@ p {
 
 .toolbar-section {
 	margin-bottom:30px;
+}
+
+a {
+	color:black;
+}
+
+/* about page */
+
+#about {
+	margin-top:30px;
 }
