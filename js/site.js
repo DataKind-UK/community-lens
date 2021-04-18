@@ -13,7 +13,7 @@ function getPostCodeData(postcode){
 			url: file,
 			success: function(result){
 				if(result[postcode]==undefined){
-					error.push(postcode);
+					errors.push(postcode);
 				} else {
 					let data = result[postcode];
 					data.unshift(postcode);
