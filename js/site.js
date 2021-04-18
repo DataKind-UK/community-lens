@@ -18,9 +18,9 @@ function getPostCodeData(postcode){
 					let data = result[postcode];
 					data.unshift(postcode);
 		    		postcodeData.push(result[postcode]);
-		    		asyncCalls--;					
+		    							
 				}
-
+				asyncCalls--;
 	    		if(asyncCalls==0){
 	    			processingComplete();
 	    		}
