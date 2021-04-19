@@ -34,12 +34,6 @@ p {
 	font-weight:600;
 }
 
-#footer {
-	padding-top:15px;
-	background-color:#F2F2F2;
-	min-height:100px;
-	margin-top:30px;
-}
 
  ul {
   list-style-type: none;
@@ -164,4 +158,20 @@ p {
 
 #about {
 	margin-top:30px;
+}
+
+/* footer */
+
+#footer {
+	padding-top:30px;
+	padding-bottom:30px;
+	background-color:#F2F2F2;
+	min-height:100px;
+	margin-top:30px;
+}
+
+
+.footer-logo {
+	padding-left:15px;
+	padding-right:15px;
 }
