@@ -21,19 +21,13 @@ with open(postcodeFile, newline='') as csvfile:
     for row in csvreader:
 
     		#get the start of the postcode (3 or 4 character before space) and lsoa value for join
-    		postcodeStart = row[2].split(' ')[0]
-    		lsoa = row[34]
+    		
 
     		#check if in England or not
     		if(row[49] not in ['N99999999','S99999999','W99999999','stp','','L99999999','M99999999']):
+    			postcodeStart = row[2].split(' ')[0] + row[2].split(' ')[1][0]
+    			lsoa = row[34]
 
-
-	    		fileEnding = '_5'
-	    		postcodeEnd = row[2].split(' ')[1][0]
-	    		if int(postcodeEnd) <5:
-	    			fileEnding = '_0'
-
-	    		postcodeStart = postcodeStart+fileEnding
     			#retrieve IMD data for the lsoa
 	    		imdData = imd[lsoa]
 

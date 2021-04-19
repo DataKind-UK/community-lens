@@ -1,12 +1,7 @@
 function getPostCodeData(postcode){
-	let shortcode = postcode.substr(0,postcode.length-3);
-	let postcodeEnd = postcode.substr(postcode.length-3,postcode.length-2);
-	let fileEnding = '_5'
-	if(parseInt(postcodeEnd)<5){
-		fileEnding = '_0'
-	}
+	let shortcode = postcode.substr(0,postcode.length-2);
 
-	let file = '../processed_data/'+shortcode+fileEnding+'.json';
+	let file = '../processed_data/'+shortcode+'.json';
 	console.log(file);
 	$.ajax(
 		{
@@ -50,7 +45,7 @@ function cleanPostcode(postcode){
 }
 
 function processingComplete(){
-	console.log(postcodeData);
+	gtag('event', 'geocode_postcode', {'value':postcodeData.length});
 	if(errors.length>0){
 		$('#analysis-progress').hide();
 		$('#analysis-finished').show();
@@ -155,10 +150,7 @@ function init(){
 	$('#analysis-finished').hide();
 
 	$('.btn-datatopic').on('mouseover',function(){
-		console.log($(this));
 		let topic = $(this).attr('data-id');
-		console.log(dataIndex);
-		console.log(topic);
 		let title = dataIndex[topic].title;
 		let definition = dataIndex[topic].definition;
 		$('#dataset-title').html(title);
