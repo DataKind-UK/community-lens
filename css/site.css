@@ -46,6 +46,10 @@ p {
   padding-left: 0;
  }
 
+ a {
+	color:black;
+}
+
 /* front page */
 
 #main-description {
@@ -62,6 +66,7 @@ p {
 
 #frontpage-section-3 {
 	padding-top:100px;
+	background-color:#F2F2F2;
 }
 
 #frontpage-section-4 {
@@ -137,8 +142,22 @@ p {
 	margin-bottom:30px;
 }
 
-a {
-	color:black;
+.popuptext {
+	margin-bottom:2px !important;
+	margin-top:2px !important;
+}
+
+#zoomwarning {
+	font-size:2em;
+}
+
+.info {
+    padding: 16px 8px 4px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
 }
 
 /* about page */
