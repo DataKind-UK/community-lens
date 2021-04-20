@@ -21,6 +21,11 @@ h2 {
 	border-color:black;
 }
 
+.btn-highlight {
+	background-color:#000;
+	color:#fff;
+}
+
 p {
 	font-size:0.9em;
 }
@@ -45,6 +50,14 @@ p {
 }
 
 /* front page */
+
+.frontpagetitle {
+	font-size:1.6em;
+}
+
+.frontpagesubtitle {
+	font-size:1.1em;
+}
 
 #main-description {
 	margin-top:100px;
@@ -81,6 +94,11 @@ p {
 
 .leftimage {
 	float: right;
+}
+
+.frontpagescreen {
+	border: #000 solid 1px;
+	padding:15px;
 }
 
 /* topic page */

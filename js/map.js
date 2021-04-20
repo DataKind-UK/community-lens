@@ -22,7 +22,7 @@ function createMap(postcodes){
 	  minZoom:10,
 	  precision: 5,
 	  renderer:L.canvas(),
-	  //fields:['FID','IMDDec0','IncDec','EmpDec','EduDec','CriDec','BHSDec','EnvDec','HDDDec']
+	  fields:['FID','IMDDec0','IncDec','EmpDec','EduDec','CriDec','BHSDec','EnvDec','HDDDec']
 	}).addTo(map);
 
 	let postcodeLayer = getPostcodeLayer(postcodes);
