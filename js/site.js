@@ -109,7 +109,11 @@ function generateDownload(){
 	});
 
 	var encodedUri = encodeURI(csvContent);
-	window.open(encodedUri);
+	var link = document.createElement("a");
+	link.setAttribute("href", encodedUri);
+	link.setAttribute("download", "community_lens.csv");
+	document.body.appendChild(link);
+	link.click();
 
 }
 
