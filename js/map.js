@@ -61,7 +61,8 @@ function createMap(postcodes){
 function getPostcodeLayer(postcodes,index){
 	let markers = [];
 	postcodes.forEach(function(postcode){
-		let popUp = "<p>Postcode: "+postcode[0]+"</p>";
+		console.log(postcode);
+		let popUp = "<p>Postcode: "+postcode[0]+" - "+postcode[4]+"</p>";
 		popUp += '<p class="popuptext">IMD rank: '+postcode[5]+' out of 32,844</p>';
 		popUp += '<p class="popuptext">IMD Decile: '+getDecile(postcode[5])+'</p>';
 		popUp += '<p class="popuptext">Income Decile: '+getDecile(postcode[6])+'</p>';
@@ -71,7 +72,13 @@ function getPostcodeLayer(postcodes,index){
 		popUp += '<p class="popuptext">Crime Decile: '+getDecile(postcode[10])+'</p>';
 		popUp += '<p class="popuptext">Housing and Services Decile: '+getDecile(postcode[11])+'</p>';
 		popUp += '<p class="popuptext">Living Environment Decile: '+getDecile(postcode[12])+'</p>';
-		let marker = L.marker([postcode[1], postcode[2]]).bindPopup(popUp);
+		let marker = L.marker([postcode[1], postcode[2]]);
+		icon = marker.options.icon;
+		icon.options.iconSize = [20, 32];
+		icon.options.iconAnchor = [10,32];
+		icon.options.shadowSize = [0.0];
+		marker.setIcon(icon);
+		marker.bindPopup(popUp);
 		markers.push(marker);
 	});
 

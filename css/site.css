@@ -172,6 +172,10 @@ p {
     border-radius: 5px;
 }
 
+ .link-highlight {
+	text-decoration: underline;
+}
+
 /* about page */
 
 #about {

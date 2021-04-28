@@ -75,9 +75,13 @@ function setForData(topic){
 
 	$('#title').html(dataIndex[topic].title);
 	$('#definition').html(dataIndex[topic].definition);
+	$('#datasource').attr("href",dataIndex[topic].source);
+	$('#decile1def').html(dataIndex[topic].decile1Def);
+	$('#decile10def').html(dataIndex[topic].decile10Def);
 
 	let index = dataIndex[topic].index;
 	let featureAtt = dataIndex[topic].featureAtt;
+
 	setLayerStyle(topic,featureAtt);
 	averageRank = getAverageRank(postcodeData,index,topic);
 	rankBar('#averageRank',averageRank,[],topic);
@@ -85,6 +89,8 @@ function setForData(topic){
 	generateText(postcodeData,index,topic);
 	$('.btn-data').removeClass('btn-active');
 	$('.btn[data-id="'+topic+'"]').addClass('btn-active');
+
+
 }
 
 function getDecile(rank){
@@ -157,8 +163,11 @@ function init(){
 		let topic = $(this).attr('data-id');
 		let title = dataIndex[topic].title;
 		let definition = dataIndex[topic].definition;
+		let source = dataIndex[topic].source;
 		$('#dataset-title').html(title);
 		$('#dataset-definition').html(definition);
+		console.log(source);
+		$('#dataset-source').attr('href',source);
 	});
 
 	$('.btn-datatopic').on('click',function(){
