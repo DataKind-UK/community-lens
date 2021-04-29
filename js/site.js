@@ -102,7 +102,7 @@ function getDecile(rank){
 }
 
 function generateDownload(){
-	let downloadData = [["Postcode", "Latitude", "Longitude", "LSOA Code", "Local Authority", "IMD Decile", "Income Decile", "Employment Decile", "Education Decile", "Health and Disability Decile", "Crime Decile", "Housing and Services Decile", "Living Environment Decile"]];
+	let downloadData = [["Postcode", "Latitude", "Longitude", "LA Code", "Local Authority", "IMD Decile", "Income Decile", "Employment Decile", "Education Decile", "Health and Disability Decile", "Crime Decile", "Housing and Services Decile", "Living Environment Decile"]];
 	postcodeData.forEach(function(row){
 		downloadData.push([row[0],row[1],row[2],row[3],row[4],getDecile(row[5]),getDecile(row[6]),getDecile(row[7]),getDecile(row[8]),getDecile(row[9]),getDecile(row[10]),getDecile(row[11]),getDecile(row[12])]);
 	});
