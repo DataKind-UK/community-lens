@@ -1,3 +1,3 @@
 # data_connect
 
-http://datakind-uk.github.io/community_lens
+https://datakind-uk.github.io/community-lens/
