@@ -17,7 +17,7 @@ function createMap(postcodes){
 	}).addTo(map);
 
 	featureLayer = L.esri.featureLayer({
-	  url: 'https://services-eu1.arcgi/arcgis/rest/services/Indices_of_Multiple_Deprivation_%28IMD%29_2019/FeatureServer/0/',
+	  url: 'https://services-eu1.arcgis.com/EbKcOS6EXZroSyoi/arcgis/rest/services/Indices_of_Multiple_Deprivation_%28IMD%29_2019/FeatureServer/0/',
 	  simplifyFactor: 0.35,
 	  minZoom:10,
 	  precision: 5,
