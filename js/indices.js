@@ -3,7 +3,7 @@ let dataIndex = {
       "index":5,
       "featureAtt":"IMDDec0",
       "title":"The Lens of Multiple Deprivation",
-      "definition":'The overall Index of Multiple Deprivation 2019 is a measure of multiple deprivation based on combining together seven distinct domains of deprivation, Income Deprivation, Employment Deprivation, Education, Skills and Training Deprivation, Health Deprivation and Disability, Crime, Barriers to Housing and Services, Living Environment Deprivation.',
+      "definition":'The overall Index of Multiple Deprivation 2019 is a measure of multiple deprivation based on combining together seven distinct domains of deprivation: Income Deprivation, Employment Deprivation, Education, Skills and Training Deprivation, Health Deprivation and Disability, Crime, Barriers to Housing and Services, Living Environment Deprivation.',
       "source":"https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019",
       "decile1Def":"Most Deprived",
       "decile10Def":"Least Deprived"
