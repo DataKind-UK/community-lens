@@ -117,7 +117,7 @@ function generateDownload(){
 	var encodedUri = encodeURI(csvContent);
 	var link = document.createElement("a");
 	link.setAttribute("href", encodedUri);
-	link.setAttribute("download", "community_lens.csv");
+	link.setAttribute("download", "community_lens_2019.csv");
 	document.body.appendChild(link);
 	link.click();
 

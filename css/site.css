@@ -27,7 +27,7 @@ h2 {
 }
 
 p {
-	font-size:0.9em;
+	font-size:1em;
 }
 
 .menu-item {
@@ -60,8 +60,9 @@ p {
 }
 
 #main-description {
-	margin-top:100px;
-}
+	margin-top:50px;
+	margin-left:50px;
+	margin-right:100px;}
 
 .frontpage-section {
 	min-height:500px;
@@ -174,6 +175,13 @@ p {
 
  .link-highlight {
 	text-decoration: underline;
+}
+
+.link-highlight-landing-page {
+	text-decoration: underline;
+	text-decoration-color: blue;
+	color: purple;
+	font-weight: 1000px;
 }
 
 /* about page */
